@@ -22,6 +22,10 @@ function plugin_path( $path = '' ) {
 		] );
 }
 
+function plugin_url( $path = '' ) {
+	return plugin_dir_url( Str::remove( __FILE__, '/src') . '/' . $path );
+}
+
 function src_path( $path = '' ) {
 	return plugin_path( 'src/' . $path );
 }

@@ -11,6 +11,39 @@ use DT\Autolink\MagicLinks\UserMagicLink;
 use function DT\Autolink\container;
 
 register_rest_route(
+	$namespace,
+	'/' . $this->type,
+	[
+		[
+			'methods'             => "GET",
+			'callback'            => [ $this, 'endpoint_get' ],
+			'permission_callback' => function ( WP_REST_Request $request ) {
+				$magic = new DT_Magic_URL( $this->root );
+
+				return $magic->verify_rest_endpoint_permissions_on_post( $request );
+			},
+		],
+	]
+);
+register_rest_route(
+	$namespace,
+	'/' . $this->type,
+	[
+		[
+			'methods'             => "POST",
+			'callback'            => [ $this, 'endpoint_post' ],
+			'permission_callback' => function ( WP_REST_Request $request ) {
+				$magic = new DT_Magic_URL( $this->root );
+
+				return $magic->verify_rest_endpoint_permissions_on_post( $request );
+			},
+		],
+	]
+);
+
+
+
+register_rest_route(
 	$namespace, '/' . $this->type, [
 		[
 			'methods'             => 'GET',

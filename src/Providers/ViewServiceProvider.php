@@ -4,6 +4,7 @@ namespace DT\Autolink\Providers;
 
 use DT\Autolink\League\Plates\Engine;
 use DT\Autolink\Plates\Escape;
+use DT\Autolink\Plates\Functions;
 use function DT\Autolink\views_path;
 
 /**
@@ -21,6 +22,8 @@ class ViewServiceProvider extends ServiceProvider {
 		} );
 		$engine = $this->container->make( Engine::class )->loadExtension(
 			$this->container->make( Escape::class )
+		)->loadExtension(
+			$this->container->make( Functions::class )
 		);
 	}
 

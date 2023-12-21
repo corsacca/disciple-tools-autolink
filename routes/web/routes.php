@@ -3,7 +3,7 @@
  * @var RouteCollector $r
  */
 
-use DT\Autolink\Controllers\HelloController;
+use DT\Autolink\Controllers\RedirectController;
 use DT\Autolink\FastRoute\RouteCollector;
 
-$r->get( 'dt/autolink/hello', HelloController::class . '@show' );
+$r->get( 'autolink', RedirectController::class . '@show' );

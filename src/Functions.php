@@ -3,6 +3,7 @@
 namespace DT\Autolink;
 
 use Disciple_Tools_Users;
+use DT_Genmapper_Metrics;
 use DT_Magic_URL;
 use DT_Mapbox_API;
 use DT_Posts;
